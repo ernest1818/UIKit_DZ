@@ -6,7 +6,8 @@
 //
 
 import UIKit
-/// класс
+
+/// SceneDelegate
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
