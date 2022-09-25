@@ -7,23 +7,53 @@
 
 import UIKit
 
-class RegistorGuestController: UIViewController {
+/// RegistorGuestController
+final class RegistorGuestController: UIViewController {
 
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var guestCountTextField: UITextField!
+    @IBOutlet weak var numberTabTextField: UITextField!
+    
+    @IBOutlet weak var bookingSwitch: UISwitch!
+    @IBOutlet weak var prepaymentSwitch: UISwitch!
+    @IBOutlet weak var vipRoomSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "checkVC" else { return }
+        guard let desination = segue.destination as? CheckViewController else { return }
+        desination.name = nameTextField.text ?? ""
+        desination.guestCount = guestCountTextField.text ?? ""
+        desination.numberTab = numberTabTextField.text ?? ""
+        
+        if self.bookingSwitch.isOn {
+            desination.booking = "50"
+        }
+        if self.prepaymentSwitch.isOn {
+            desination.prepayment = "200"
+        }
+        if self.vipRoomSwitch.isOn {
+            desination.vipRoom = "1000"
+        }
+        
+    }
+
+    @IBAction func checkButton(_ sender: Any) {
+       checkAlert()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func checkAlert() {
+        let alert  = UIAlertController(title: "Выставить чек?", message: "                   ", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Чек", style: .default) {_ in
+            self.performSegue(withIdentifier: "checkVC", sender: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(action)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
     }
-    */
-
 }

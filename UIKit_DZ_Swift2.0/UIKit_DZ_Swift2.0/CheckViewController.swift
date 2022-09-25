@@ -7,23 +7,41 @@
 
 import UIKit
 
-class CheckViewController: UIViewController {
+/// CheckViewController
+final class CheckViewController: UIViewController {
 
+    @IBOutlet weak var clientLabel: UILabel!
+    @IBOutlet weak var numberTabLabel: UILabel!
+    @IBOutlet weak var guestCountLabel: UILabel!
+    
+    @IBOutlet weak var bookingLabel: UILabel!
+    @IBOutlet weak var prepaymentLabel: UILabel!
+    @IBOutlet weak var vipRoomLabel: UILabel!
+    
+    @IBOutlet weak var sumLabel: UILabel!
+    
+    var name = ""
+    var numberTab = ""
+    var guestCount = ""
+    
+    var booking = "0"
+    var prepayment = "0"
+    var vipRoom = "0"
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let bookingInt = Int(booking)
+        let prepayInt = Int(prepayment)
+        let vipInt = Int(vipRoom)
+        
+        clientLabel.text = (clientLabel.text ?? "") + " " + name
+        numberTabLabel.text = (numberTabLabel.text ?? "") + " " + numberTab
+        guestCountLabel.text = (guestCountLabel.text ?? "") + " " + guestCount
+        
+        bookingLabel.text = booking
+        prepaymentLabel.text = prepayment
+        vipRoomLabel.text = vipRoom
+        
+        sumLabel.text = "Итого: \( 700 + (bookingInt ?? 0) - (prepayInt ?? 0) + (vipInt ?? 0))"
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
