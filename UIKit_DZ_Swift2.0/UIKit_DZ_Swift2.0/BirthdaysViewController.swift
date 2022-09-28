@@ -12,15 +12,15 @@ final class BirthdaysViewController: UIViewController {
 
     private let addButton = UIButton()
     private let birthView = UIView()
-    private let imageOne = UIImageView()
-    private let imageTwo = UIImageView()
-    private let imageThree = UIImageView()
+    private let oneImageView = UIImageView()
+    private let twoImageView = UIImageView()
+    private let threeImageView = UIImageView()
     private let imageOneView = UIView()
     private let imageTwoView = UIView()
     private let imageThreeView = UIView()
-    private let labelNameOne = UILabel()
-    private let labelNameTwo = UILabel()
-    private let labelNameThre = UILabel()
+    private let oneNameLabel = UILabel()
+    private let twoNameLabel = UILabel()
+    private let threeNameLabel = UILabel()
     private let textLabel = UILabel()
     private let textLabelOne = UILabel()
     private let textLabelTwo = UILabel()
@@ -49,55 +49,55 @@ final class BirthdaysViewController: UIViewController {
     // MARK: - создали картинки
     private func createImages() {
         // Фото первого
-        imageOne.frame = CGRect(x: 10, y: 110, width: 50, height: 50)
-        imageOne.image = UIImage(systemName: "person.fill", compatibleWith: nil)
-        imageOne.tintColor = .gray
-        imageOne.layer.cornerRadius = 25
-        imageOne.layer.masksToBounds = true
-        imageOne.backgroundColor = .systemGray4
-        view.addSubview(imageOne)
+        oneImageView.frame = CGRect(x: 10, y: 110, width: 50, height: 50)
+        oneImageView.image = UIImage(systemName: "person.fill", compatibleWith: nil)
+        oneImageView.tintColor = .gray
+        oneImageView.layer.cornerRadius = 25
+        oneImageView.layer.masksToBounds = true
+        oneImageView.backgroundColor = .systemGray4
+        view.addSubview(oneImageView)
         
         // Фото второго
-        imageTwo.frame = CGRect(x: 10, y: 185, width: 50, height: 50)
-        imageTwo.image = UIImage(systemName: "person.fill", compatibleWith: nil)
-        imageTwo.tintColor = .gray
-        imageTwo.layer.cornerRadius = 25
-        imageTwo.layer.masksToBounds = true
-        imageTwo.backgroundColor = .systemGray4
-        view.addSubview(imageTwo)
+        twoImageView.frame = CGRect(x: 10, y: 185, width: 50, height: 50)
+        twoImageView.image = UIImage(systemName: "person.fill", compatibleWith: nil)
+        twoImageView.tintColor = .gray
+        twoImageView.layer.cornerRadius = 25
+        twoImageView.layer.masksToBounds = true
+        twoImageView.backgroundColor = .systemGray4
+        view.addSubview(twoImageView)
         
         // Фото третьего
-        imageThree.frame = CGRect(x: 10, y: 260, width: 50, height: 50)
-        imageThree.image = UIImage(systemName: "person.fill", compatibleWith: nil)
-        imageThree.tintColor = .gray
-        imageThree.layer.cornerRadius = 25
-        imageThree.layer.masksToBounds = true
-        imageThree.backgroundColor = .systemGray4
-        view.addSubview(imageThree)
+        threeImageView.frame = CGRect(x: 10, y: 260, width: 50, height: 50)
+        threeImageView.image = UIImage(systemName: "person.fill", compatibleWith: nil)
+        threeImageView.tintColor = .gray
+        threeImageView.layer.cornerRadius = 25
+        threeImageView.layer.masksToBounds = true
+        threeImageView.backgroundColor = .systemGray4
+        view.addSubview(threeImageView)
     }
     // MARK: - создали лейблы с именами юзеров
     private func createNameLabels() {
         
         // Имя первого человека
-        labelNameOne.frame = CGRect(x: 70, y: 100, width: 200, height: 40)
-        labelNameOne.text = "Jeremy"
-        labelNameOne.textColor = .black
-        labelNameOne.font = .systemFont(ofSize: 18, weight: .medium)
-        view.addSubview(labelNameOne)
+        oneNameLabel.frame = CGRect(x: 70, y: 100, width: 200, height: 40)
+        oneNameLabel.text = "Jeremy"
+        oneNameLabel.textColor = .black
+        oneNameLabel.font = .systemFont(ofSize: 18, weight: .medium)
+        view.addSubview(oneNameLabel)
         
         // имя второго человека
-        labelNameTwo.frame = CGRect(x: 70, y: 175, width: 200, height: 40)
-        labelNameTwo.text = "Maria Lui"
-        labelNameTwo.textColor = .black
-        labelNameTwo.font = .systemFont(ofSize: 18, weight: .medium)
-        view.addSubview(labelNameTwo)
+        twoNameLabel.frame = CGRect(x: 70, y: 175, width: 200, height: 40)
+        twoNameLabel.text = "Maria Lui"
+        twoNameLabel.textColor = .black
+        twoNameLabel.font = .systemFont(ofSize: 18, weight: .medium)
+        view.addSubview(twoNameLabel)
         
         // имя третьего человека
-        labelNameThre.frame = CGRect(x: 70, y: 250, width: 200, height: 40)
-        labelNameThre.text = "Jony Stark"
-        labelNameThre.textColor = .black
-        labelNameThre.font = .systemFont(ofSize: 18, weight: .medium)
-        view.addSubview(labelNameThre)
+        threeNameLabel.frame = CGRect(x: 70, y: 250, width: 200, height: 40)
+        threeNameLabel.text = "Jony Stark"
+        threeNameLabel.textColor = .black
+        threeNameLabel.font = .systemFont(ofSize: 18, weight: .medium)
+        view.addSubview(threeNameLabel)
         
     }
     // MARK: - создали лейблы с описанием дня рождения

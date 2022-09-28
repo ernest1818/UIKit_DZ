@@ -14,7 +14,7 @@ final class AddUserViewController: UIViewController {
     private let cancelButton = UIButton()
     private let addButton = UIButton()
     private let addPhotoButton = UIButton()
-    private let photo = UIImageView()
+    private let photoImageView = UIImageView()
     private let nameLabel = UILabel()
     private let dateLabel = UILabel()
     private let ageLebel = UILabel()
@@ -42,10 +42,7 @@ final class AddUserViewController: UIViewController {
         setAllViews()
     }
     // MARK: - Actions
-    @objc func photoAdd() {
-        print("rrr")
-    }
-    
+
     @objc func instaTargetAction() {
         let instAlertConroller = UIAlertController(title: "Введите свое имя в Instagram",
                                                    message: "",
@@ -65,7 +62,7 @@ final class AddUserViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    @objc func handleDatePicker() {
+    @objc func handleDatePickerAction() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         dateText.text = dateFormatter.string(from: pickerDate.date)
@@ -73,8 +70,8 @@ final class AddUserViewController: UIViewController {
     }
     // MARK: - private Funcs
     private func setAllViews() {
-        cancelButtAction()
-        addButtAction()
+        createCancelButton()
+        createAddButton()
         createNameLabel()
         createDateLabel()
         createGenderLabel()
@@ -132,13 +129,13 @@ final class AddUserViewController: UIViewController {
     // MARK: - картинка
     
     private func createUserPhotos() {
-        photo.frame = CGRect(x: 125, y: 60, width: 150, height: 150)
-        photo.backgroundColor = .systemGray2
-        photo.tintColor = .gray
-        photo.layer.cornerRadius = 75
-        photo.layer.masksToBounds = true
-        photo.image = UIImage.init(systemName: "person.fill")
-        view.addSubview(photo)
+        photoImageView.frame = CGRect(x: 125, y: 60, width: 150, height: 150)
+        photoImageView.backgroundColor = .systemGray2
+        photoImageView.tintColor = .gray
+        photoImageView.layer.cornerRadius = 75
+        photoImageView.layer.masksToBounds = true
+        photoImageView.image = UIImage.init(systemName: "person.fill")
+        view.addSubview(photoImageView)
     }
     
     // MARK: - линии под текстфилды
@@ -185,7 +182,7 @@ final class AddUserViewController: UIViewController {
         dateText.placeholder = "Введите дату"
         pickerDate.datePickerMode = .dateAndTime
         pickerDate.preferredDatePickerStyle = .wheels
-        pickerDate.addTarget(self, action: #selector(handleDatePicker), for: .valueChanged)
+        pickerDate.addTarget(self, action: #selector(handleDatePickerAction), for: .valueChanged)
         dateText.inputView = pickerDate
         view.addSubview(dateText)
     }
@@ -225,11 +222,10 @@ final class AddUserViewController: UIViewController {
         addPhotoButton.backgroundColor = .systemBackground
         addPhotoButton.setTitleColor(.systemBlue, for: .normal)
         addPhotoButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
-        addPhotoButton.addTarget(self, action: #selector(photoAdd), for: .valueChanged)
         view.addSubview(addPhotoButton)
     }
     
-    private func addButtAction() {
+    private func createAddButton() {
         addButton.frame = CGRect(x: 290, y: 20, width: 100, height: 30)
         addButton.setTitle("Добавить", for: .normal)
         addButton.backgroundColor = .systemBackground
@@ -238,7 +234,7 @@ final class AddUserViewController: UIViewController {
         view.addSubview(addButton)
     }
     
-    private func cancelButtAction() {
+    private func createCancelButton() {
         cancelButton.frame = CGRect(x: 10, y: 20, width: 80, height: 30)
         cancelButton.setTitle("Отмена", for: .normal)
         cancelButton.backgroundColor = .systemBackground

@@ -17,24 +17,24 @@ final class LogInViewController: UIViewController {
     private let passwordLabel = UILabel()
     private let faceIDLabel = UILabel()
     
-    private let mailText = UITextField()
-    private let passText = UITextField()
+    private let mailTextField = UITextField()
+    private let passTextField = UITextField()
     
     private let mailView = UIView()
     private let passView = UIView()
     
     private let comeInButton = UIButton()
     private let eyeButton = UIButton()
-    private let switc = UISwitch()
+    private let loginSwitch = UISwitch()
     private var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        allViewCreateFunc()
+        configureViews()
     }
     
-    private func allViewCreateFunc() {
+    private func configureViews() {
         createBirthLabel()
         createSignInLabel()
         createMilLabel()
@@ -95,16 +95,16 @@ final class LogInViewController: UIViewController {
     }
     
     private func setswitch() {
-        switc.frame = CGRect(x: 275, y: 520, width: 0, height: 0)
-        switc.isOn = true
-        view.addSubview(switc)
+        loginSwitch.frame = CGRect(x: 275, y: 520, width: 0, height: 0)
+        loginSwitch.isOn = true
+        view.addSubview(loginSwitch)
     }
     
     private func createMailField() {
-        mailText.frame = CGRect(x: 45, y: 345, width: 300, height: 30)
-        mailText.textColor = UIColor.black
-        mailText.placeholder = "Введите электронную почту"
-        view.addSubview(mailText)
+        mailTextField.frame = CGRect(x: 45, y: 345, width: 300, height: 30)
+        mailTextField.textColor = UIColor.black
+        mailTextField.placeholder = "Введите электронную почту"
+        view.addSubview(mailTextField)
     }
     private func createMailView() {
         mailView.frame = CGRect(x: 45, y: 385, width: 300, height: 1)
@@ -113,11 +113,11 @@ final class LogInViewController: UIViewController {
     }
     
     private func createPassField() {
-        passText.frame = CGRect(x: 45, y: 445, width: 300, height: 30)
-        passText.textColor = UIColor.black
-        passText.placeholder = "Введите пороль"
-        passText.isSecureTextEntry = true
-        view.addSubview(passText)
+        passTextField.frame = CGRect(x: 45, y: 445, width: 300, height: 30)
+        passTextField.textColor = UIColor.black
+        passTextField.placeholder = "Введите пороль"
+        passTextField.isSecureTextEntry = true
+        view.addSubview(passTextField)
         
         passView.frame = CGRect(x: 45, y: 485, width: 300, height: 1)
         passView.backgroundColor = UIColor.lightGray
@@ -152,11 +152,11 @@ final class LogInViewController: UIViewController {
     
     @objc private func eyeAction() {
         if counter == 0 {
-            passText.isSecureTextEntry = false
+            passTextField.isSecureTextEntry = false
             eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
             counter += 1
         } else {
-            passText.isSecureTextEntry = true
+            passTextField.isSecureTextEntry = true
             eyeButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
             counter = 0
         }
