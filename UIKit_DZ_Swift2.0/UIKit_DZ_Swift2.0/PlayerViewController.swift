@@ -27,10 +27,10 @@ class PlayerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        allViewsInPlayerVC()
+        configureViews()
     }
     
-    private func allViewsInPlayerVC() {
+    private func configureViews() {
         setPlayerImageAndLabels()
         configureShadowView()
         configurateImageView()
@@ -44,55 +44,71 @@ class PlayerViewController: UIViewController {
     private func setPlayerImageAndLabels() {
         
         if artistMacan != nil {
-            playerImageView.image = UIImage(named: artistMacan?.imageName ?? " ")
-            upNameLabel.text = artistMacan?.name
-            downNameLabel.text = artistMacan?.name
-            updateTimeSlider()
-            do {
-                if let audioPath = Bundle.main.path(forResource: artistMacan?.name, ofType: "mp3") {
-                    try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
-                    musicSlider.maximumValue = Float(player.duration)
-                }
-            } catch {
-                print("Error")
-            }
-            player.play()
+            createMacanViews()
+            playMacanArtist()
         } else {
-            playerImageView.image = UIImage(named: artistIslyam?.imageName ?? " ")
-            upNameLabel.text = artistIslyam?.name
-            downNameLabel.text = artistIslyam?.name
-            updateTimeSlider()
-            do {
-                if let audioPath = Bundle.main.path(forResource: artistIslyam?.name, ofType: "mp3") {
-                    try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
-                    musicSlider.maximumValue = Float(player.duration)
-                }
-            } catch {
-                print("Error")
-            }
-            player.play()
+            createIslyamViews()
+            playIslyamArtist()
         }
     }
     
+    private func createMacanViews() {
+        playerImageView.image = UIImage(named: artistMacan?.imageName ?? " ")
+        upNameLabel.text = artistMacan?.name
+        downNameLabel.text = artistMacan?.name
+        updateTimeSlider()
+    }
+    
+    private func createIslyamViews() {
+        playerImageView.image = UIImage(named: artistIslyam?.imageName ?? " ")
+        upNameLabel.text = artistIslyam?.name
+        downNameLabel.text = artistIslyam?.name
+        updateTimeSlider()
+    }
+    
+    private func playMacanArtist() {
+        do {
+            if let audioPath = Bundle.main.path(forResource: artistMacan?.name, ofType: "mp3") {
+                try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
+                musicSlider.maximumValue = Float(player.duration)
+            }
+        } catch {
+            print("Error")
+        }
+        player.play()
+    }
+    
+    private func playIslyamArtist() {
+        do {
+            if let audioPath = Bundle.main.path(forResource: artistIslyam?.name, ofType: "mp3") {
+                try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
+                musicSlider.maximumValue = Float(player.duration)
+            }
+        } catch {
+            print("Error")
+        }
+        player.play()
+    }
     private func configureShadowView() {
         shadowView.layer.shadowColor = UIColor.black.cgColor
         shadowView.layer.shadowRadius = 5.0
         shadowView.layer.shadowOffset = CGSize(width: 2, height: 5)
         shadowView.layer.shadowOpacity = 0.7
     }
-        private func updateTimeSlider() {
+    
+    private func updateTimeSlider() {
             Timer.scheduledTimer(timeInterval: 0.1,
                                  target: self,
-                                 selector: #selector(musicTimeSlider),
+                                 selector: #selector(musicTimeSliderAction),
                                  userInfo: nil,
                                  repeats: true)
         }
   // MARK: - Экшны
-    @IBAction func musicTimeSlider(_ sender: Any) {
+    @IBAction func musicTimeSliderAction(_ sender: Any) {
         musicSlider.value = Float(player.currentTime)
     }
     
-    @IBAction func playPauseButton(_ sender: Any) {
+    @IBAction func playPauseButtonAction(_ sender: Any) {
         if count == 1 {
             player.play()
             playPauseButton.setImage(UIImage(systemName: "pause.fill", compatibleWith: .none), for: .normal)
@@ -104,7 +120,7 @@ class PlayerViewController: UIViewController {
             count = 1
         }
     }
-    @IBAction func volumeSlider(_ sender: Any) {
+    @IBAction func volumeSliderAction(_ sender: Any) {
         player.volume = volumsSlider.value
     }
     
