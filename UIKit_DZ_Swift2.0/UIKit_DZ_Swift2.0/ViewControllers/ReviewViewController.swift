@@ -83,6 +83,7 @@ class ReviewViewController: UIViewController {
     // MARK: - Actions
     private func buttonAction() {
         creviewsButton.addTarget(self, action: #selector(alertTextAction), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(goBackAction), for: .touchUpInside)
     }
     
     @objc private func alertTextAction() {
@@ -97,6 +98,10 @@ class ReviewViewController: UIViewController {
         alertController.addAction(alertControllerAction)
         alertController.addTextField { $0.placeholder = "лучшая компания в регионе"}
         present(alertController, animated: true)
+    }
+    
+    @objc private func goBackAction() {
+        dismiss(animated: true)
     }
 
 }
