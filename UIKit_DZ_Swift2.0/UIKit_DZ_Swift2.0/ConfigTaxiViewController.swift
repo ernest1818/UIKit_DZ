@@ -39,13 +39,13 @@ class ConfigTaxiViewController: UIViewController {
         createBagSwitch()
     }
     
-    private func createOrderLable() {
+    private func createOrderLabel() {
         orderLabel.frame = CGRect(x: 0, y: 100, width: 390, height: 80)
         orderLabel.backgroundColor = UIColor.darkGray
         orderLabel.text = "Выберите интерисующий вас класс машины"
         orderLabel.layer.cornerRadius = 20
         orderLabel.layer.masksToBounds = true
-        orderLabel.textColor = UIColor.systemYellow
+        orderLabel.textColor = .systemYellow
         orderLabel.font = .systemFont(ofSize: 15, weight: .heavy)
         orderLabel.textAlignment = .center
         view.addSubview(orderLabel)
@@ -55,7 +55,7 @@ class ConfigTaxiViewController: UIViewController {
         taxiImage.frame = CGRect(x: 20, y: 200, width: 350, height: 250)
         taxiImage.image = taxiClass[0]
         taxiImage.contentMode = .scaleAspectFill
-        taxiImage.backgroundColor = UIColor.systemYellow
+        taxiImage.backgroundColor = .systemYellow
         view.addSubview(taxiImage)
     }
     
@@ -80,7 +80,7 @@ class ConfigTaxiViewController: UIViewController {
         taxiSegmented = UISegmentedControl(items: menuSegment)
         taxiSegmented.frame = CGRect(x: 20, y: 600, width: 350, height: 60)
         taxiSegmented.backgroundColor = UIColor.darkGray
-        taxiSegmented.selectedSegmentTintColor = UIColor.systemYellow
+        taxiSegmented.selectedSegmentTintColor = .systemYellow
         taxiSegmented.addTarget(self, action: #selector(selectedValueAction), for: .valueChanged)
         view.addSubview(taxiSegmented)
     }

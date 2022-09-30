@@ -10,8 +10,8 @@ import UIKit
 /// Итоговый контроллер показывает выбранные клиентом элементы
 final class TotalViewController: UIViewController {
     
-    public var information = ""
-    public var bag = ""
+    var information = ""
+    var bag = ""
     
     private let orderLabel = UILabel()
     private let readyButton = UIButton()
@@ -106,11 +106,11 @@ final class TotalViewController: UIViewController {
         view.addSubview(readyButton)
     }
     
-    @objc func sliderValueChangeAction() {
+    @objc private func sliderValueChangeAction() {
         chaiCountLabel.text = "\(Int(slider.value))p."
     }
     
-    @objc func backButtonAction() {
+    @objc private func backButtonAction() {
         navigationController?.popToRootViewController(animated: true)
     }
 }
