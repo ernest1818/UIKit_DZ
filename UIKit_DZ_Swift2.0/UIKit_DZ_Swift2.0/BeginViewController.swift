@@ -17,7 +17,7 @@ final class BeginViewController: UIViewController {
     private let outCityTextField = UITextField()
     private let inCityTextField = UITextField()
     private let cityPicker = UIPickerView()
-    private let cityArray = ["Симферополь", "Ялта", "Алушта", "Севастополь",
+    private let cities = ["Симферополь", "Ялта", "Алушта", "Севастополь",
                      "Керчь", "Феодосия", "Судак", "Джанкой", "Евпатория",
                      "Старый Крым", "Семеиз", "Мрия", "Армянск", "Саки"]
     
@@ -103,39 +103,40 @@ final class BeginViewController: UIViewController {
                                                 \(inCityTextField.text ?? "")
                                                 """,
                                                 preferredStyle: .alert)
-        let alertControllerAction = UIAlertAction(title: "Отмена", style: .cancel)
-        let alertControolerActionOk = UIAlertAction(title: "Да", style: .default) {_ in
+        let alertControllerCancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        let alertControolerOkAction = UIAlertAction(title: "Да", style: .default) {_ in
             let configVC = ConfigTaxiViewController()
             self.navigationController?.pushViewController(configVC, animated: true)
             configVC.cityOne = self.outCityTextField.text ?? ""
             configVC.cityTwo = self.inCityTextField.text ?? ""
         }
-        alertController.addAction(alertControllerAction)
-        alertController.addAction(alertControolerActionOk)
+        alertController.addAction(alertControllerCancelAction)
+        alertController.addAction(alertControolerOkAction)
         present(alertController, animated: true)
     }
     
 }
 
+/// UIPickerViewDataSource, UIPickerViewDelegate
 extension BeginViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return cityArray.count
+        return cities.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return cityArray.sorted()[row]
+        return cities.sorted()[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if outCityTextField.isEditing {
-            outCityTextField.text = "  \(cityArray.sorted()[row])"
+            outCityTextField.text = "  \(cities.sorted()[row])"
             outCityTextField.resignFirstResponder()
         } else if inCityTextField.isEditing {
-            inCityTextField.text = "  \(cityArray.sorted()[row])"
+            inCityTextField.text = "  \(cities.sorted()[row])"
             inCityTextField.resignFirstResponder()
         }
     }

@@ -13,9 +13,9 @@ class ConfigTaxiViewController: UIViewController {
     public var cityOne = ""
     public var cityTwo = ""
     public var carStyle = ""
+    
     private let pickTaxiStileLabel = UILabel()
     private let taxiImage = UIImageView()
-    private var taxiSegmented = UISegmentedControl()
     private let toOrderButton = UIButton()
     private let orderLabel = UILabel()
     private let bagSwitch = UISwitch()
@@ -23,6 +23,7 @@ class ConfigTaxiViewController: UIViewController {
     private let taxiClass = [UIImage(named: "econom.jpeg"), UIImage(named: "comfort.jpeg"),
                              UIImage(named: "comfort+.jpeg"), UIImage(named: "buisenes.jpeg")]
     private let menuSegment = ["Econom", "Comfort", "Comfort+", "Buisness"]
+    private var taxiSegmented = UISegmentedControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class ConfigTaxiViewController: UIViewController {
     
     private func configurateAllViews() {
         createTaxiImageView()
-        createOrderLable()
+        createOrderLabel()
         createTaxiSegment()
         toOrderAction()
         createBagLabel()
