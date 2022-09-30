@@ -8,7 +8,7 @@
 import UIKit
 
 /// ViewController
-class ViewController: UIViewController {
+class ShareViewController: UIViewController {
     
     @IBOutlet weak var piker: UIPickerView!
     @IBOutlet weak var shareButton: UIButton!
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     }
 }
 // MARK: - UIPickerViewDataSource
-extension ViewController: UIPickerViewDataSource {
+extension ShareViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
@@ -50,7 +50,7 @@ extension ViewController: UIPickerViewDataSource {
     
 }
 // MARK: - UIPickerViewDelegate
-extension ViewController: UIPickerViewDelegate {
+extension ShareViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if row == 2 {
             let activituController = UIActivityViewController(
