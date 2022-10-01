@@ -7,8 +7,8 @@
 
 import UIKit
 
-/// ViewController
-class ViewController: UIViewController {
+/// Контроллер отображения мирового времени
+class GlobeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
