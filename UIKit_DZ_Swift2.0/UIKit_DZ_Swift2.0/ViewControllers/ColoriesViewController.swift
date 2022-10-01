@@ -11,8 +11,8 @@ import UIKit
 final class ColoriesViewController: UIViewController {
     
     // MARK: - Public properties
-    public var pizza: Pizza?
-    public var ingrediant = PizzaIngredients()
+    var pizza: Pizza?
+    var ingrediant = PizzaIngredient()
     
     // MARK: - Privet properties
     private lazy var backButton: UIButton = {

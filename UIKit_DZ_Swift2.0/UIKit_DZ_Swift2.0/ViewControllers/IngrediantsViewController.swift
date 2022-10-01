@@ -16,8 +16,8 @@ protocol PopToFoodViewControllerDelegate: AnyObject {
 final class IngradiantsViewController: UIViewController {
     
     // MARK: - Public properties
-    public var pizza: Pizza?
-    public lazy var goToBackClouser = {
+    var pizza: Pizza?
+    lazy var goToBackHandler = {
         if let ingredientVC = self.presentingViewController as? UINavigationController {
             self.view.isHidden = true
             self.dismiss(animated: false)
@@ -172,7 +172,7 @@ final class IngradiantsViewController: UIViewController {
     @objc private func selectButtonAction() {
         let checkVC = CheckViewController()
         checkVC.delegate = self
-        checkVC.goToBackClouser = goToBackClouser
+        checkVC.goToBackHandler = goToBackHandler
         let navigatinoChecVC = UINavigationController(rootViewController: checkVC)
         checkVC.pizza = pizza
         if cheeseSwitch.isOn {

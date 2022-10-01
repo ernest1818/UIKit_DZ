@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// контролеер отображения меню 
+/// FoodViewController - класс  отображения меню
 final class FoodViewController: UIViewController {
     
     // MARK: - Privet properties

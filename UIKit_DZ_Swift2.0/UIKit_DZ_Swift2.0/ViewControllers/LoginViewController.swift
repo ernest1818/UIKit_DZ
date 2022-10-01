@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// LoginViewController - контроллер входа в приложение, где неоходимо заполнить логин и пароль
+/// LoginViewController - класс входа в приложение, где неоходимо заполнить логин и пароль
 final class LoginViewController: UIViewController {
 
     // MARK: - Privet properties

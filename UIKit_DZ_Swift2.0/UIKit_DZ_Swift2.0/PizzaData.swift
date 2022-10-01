@@ -16,7 +16,7 @@ struct Pizza {
 }
 
 /// Описыввает названия ингредиентов
-struct PizzaIngredients {
+struct PizzaIngredient {
     let dough = "тесто"
     let mozzarella = "мацарелла"
     let tomatoSauce = "томатный соус"

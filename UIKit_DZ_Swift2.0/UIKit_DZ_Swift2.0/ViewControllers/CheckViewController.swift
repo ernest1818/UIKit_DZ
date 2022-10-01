@@ -8,13 +8,13 @@
 import UIKit
 
 /// контроллер отображающий итоговый заказ и способы оплаты данного заказа
-class CheckViewController: UIViewController {
+final class CheckViewController: UIViewController {
 
     // MARK: - Public properties
-    public var pizza: Pizza?
-    public var ingrediants: [String?] = []
-    public var goToBackClouser: (() -> ())?
-    public weak var delegate: PopToFoodViewControllerDelegate?
+    var pizza: Pizza?
+    var ingrediants: [String?] = []
+    var goToBackHandler: (() -> ())?
+    weak var delegate: PopToFoodViewControllerDelegate?
 
     // MARK: - Privet properties
     private lazy var massege = """
@@ -192,7 +192,7 @@ class CheckViewController: UIViewController {
         let alertController = UIAlertController(title: "Заказ выполнен!", message: massege, preferredStyle: .alert)
         let alertControllerAction = UIAlertAction(title: "Ok", style: .default) {_ in
             self.dismiss(animated: false)
-            self.goToBackClouser?()
+            self.goToBackHandler?()
 //            self.delegate?.goToBack()
         }
         alertController.addAction(alertControllerAction)
