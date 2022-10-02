@@ -16,5 +16,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions) {
+            guard let windowScene = scene as? UIWindowScene else { return }
+            let window = UIWindow(windowScene: windowScene)
+            let labelVC = LabelViewController()
+            let secondVC = SecondViewController()
+            let navigationController = UINavigationController(rootViewController: labelVC)
+            let tabBarController = UITabBarController()
+            tabBarController.setViewControllers([navigationController, secondVC], animated: true)
+            window.rootViewController = tabBarController
+            self.window = window
+            window.makeKeyAndVisible()
+            
     }
 }
