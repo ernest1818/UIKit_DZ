@@ -10,6 +10,7 @@ import UIKit
 /// Второй класс для TabBarController
 class SecondViewController: UIViewController {
 
+    // MARK: - life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red

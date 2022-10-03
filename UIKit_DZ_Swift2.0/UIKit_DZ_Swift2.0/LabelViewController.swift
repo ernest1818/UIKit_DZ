@@ -11,12 +11,12 @@ import UIKit
 final class LabelViewController: UIViewController {
     
     private enum Constants {
-        static var alertTitle: String = "Введите пожалуйста текст"
-        static var constantY: CGFloat = 250
-        static let colorArray = ["black", "green", "blue", "orange", "yellow", "red"]
+        static let alertTitle: String = "Введите пожалуйста текст"
+        static let constantY: CGFloat = 250
+        static let colors = ["black", "green", "blue", "orange", "yellow", "red"]
     }
 
-// MARK: - Private variables
+// MARK: - Visual Components
 
     private lazy var myLabel: UILabel = {
        let label = UILabel()
@@ -124,6 +124,7 @@ final class LabelViewController: UIViewController {
         return button
     }()
     
+// MARK: - Private Properties
     private var flag = true
     private var number = true
     private var offOn = true
@@ -168,7 +169,7 @@ final class LabelViewController: UIViewController {
         lineOfLabelPicker.delegate = self
     }
     
-// MARK: - Actions
+// MARK: - private Actions
     @objc private func labelTextUppercasedAction() {
         
         if flag {
@@ -256,7 +257,7 @@ extension LabelViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView {
         case colorOfLabelPicker:
-            return Constants.colorArray.count
+            return Constants.colors.count
         case lineOfLabelPicker:
             return 5
         default:
@@ -267,7 +268,7 @@ extension LabelViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView {
         case colorOfLabelPicker:
-            return Constants.colorArray[row]
+            return Constants.colors[row]
         case lineOfLabelPicker:
             return "\(row)"
         default:
