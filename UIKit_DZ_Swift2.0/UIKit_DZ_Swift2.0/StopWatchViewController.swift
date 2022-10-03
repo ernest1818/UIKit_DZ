@@ -8,8 +8,9 @@
 import UIKit
 
 /// Контроллер отображения секндомера
-class StopWatchViewController: UIViewController {
+final class StopWatchViewController: UIViewController {
 
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

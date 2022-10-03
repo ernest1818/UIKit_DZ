@@ -8,8 +8,9 @@
 import UIKit
 
 /// Контроллер отображения будильник
-class AlarmViewController: UIViewController {
+final class AlarmViewController: UIViewController {
 
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 

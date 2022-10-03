@@ -10,16 +10,20 @@ import UIKit
 /// Контроллер отображения таймера
 class TimerViewController: UIViewController {
     
+    //MARK: - IBOutlet
+    @IBOutlet weak var timerPicker: UIPickerView!
+    
+    //MARK: - private properties
     private lazy var hours = Array(0...23)
     private lazy var minutes = Array(0...59)
     
-    @IBOutlet weak var timerPicker: UIPickerView!
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 }
 
-/// UIPickerViewDataSource
+//MARK: - UIPickerViewDataSource
 extension TimerViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         3
@@ -40,7 +44,7 @@ extension TimerViewController: UIPickerViewDataSource {
     
 }
 
-/// UIPickerViewDelegate
+//MARK: - UIPickerViewDelegate
 extension TimerViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
