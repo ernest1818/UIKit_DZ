@@ -10,7 +10,6 @@ import UIKit
 /// Контроллер отображения таймера
 class TimerViewController: UIViewController {
     
-    
     private lazy var hours = Array(0...23)
     private lazy var minutes = Array(0...59)
     
