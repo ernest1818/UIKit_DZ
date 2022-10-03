@@ -7,9 +7,10 @@
 
 import UIKit
 
-/// ViewController
-class ViewController: UIViewController {
+/// Контроллер отображения мирового времени
+final class GlobeViewController: UIViewController {
 
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
