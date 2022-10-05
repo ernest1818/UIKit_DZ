@@ -17,6 +17,8 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    let defaults = UserDefaults.standard
+    
 // MARK: - LifeCicle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +33,16 @@ class RegistrationViewController: UIViewController {
                                                queue: nil) { _ in
             self.view.frame.origin.y = 0.0
         }
-        
         setupUI()
     }
     
 // MARK: - Private Methods
     private func setupUI() {
         setUpRegistrationView()
+    }
+    
+    private func userDeafult() {
+        
     }
     
     private func setUpRegistrationView() {
@@ -47,6 +52,31 @@ class RegistrationViewController: UIViewController {
         registrationView.layer.shadowRadius = 4.0
         registrationView.layer.shadowOpacity = 0.6
     }
+    
+    @IBAction func registrationButton(_ sender: Any) {
+        guard let name = nameTaxtField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let surName = surnameTextField.text else { return }
+        guard let userName = userNameTextField else { return }
+        
+        defaults.set(name, forKey: "name")
+        defaults.set(password, forKey: "pass")
+       
+        let registrationDic = ["name": name, "surName": surName,
+                               "userName": userName, "pass": password] ?? ["": ""]
+        let registrationInfo = defaults.object(forKey: "registration") as? [String: String] ?? [String: String]()
+        if registrationInfo.count == 0 {
+            dismiss(animated: true) {
+                self.defaults.set(registrationDic, forKey: "registration")
+            }
+        }
+        print(name)
+        print(registrationDic)
+        print(defaults.object(forKey: "name") ?? "")
+        print(registrationInfo)
+        
+    }
+    
 }
 
 // MARK: - UITextFieldDelegate
