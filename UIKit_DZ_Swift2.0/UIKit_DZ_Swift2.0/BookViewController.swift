@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// Класс описывающий читалку для книг
+/// Экран читалки для книг
 final class BookViewController: UIViewController {
     
     private enum Constants {
@@ -168,10 +168,6 @@ final class BookViewController: UIViewController {
     
 // MARK: - Private methods
     private func setupUI() {
-        setupView()
-    }
-    
-    private func setupView() {
         view.addSubview(myTextView)
         view.addSubview(textSizeSlider)
         view.addSubview(smallFontSizeButton)
@@ -183,10 +179,10 @@ final class BookViewController: UIViewController {
         view.addSubview(blackColorButton)
         view.addSubview(myView)
         createPicker()
-        addTargets()
+        addActions()
     }
     
-    private func addTargets() {
+    private func addActions() {
         smallFontSizeButton.addTarget(self, action: #selector(smallFontSizeAction), for: .touchUpInside)
         largeFontSizeButton.addTarget(self, action: #selector(largeFontSizeAction), for: .touchUpInside)
         myTextView.font = UIFont(name: Constants.fontName[0], size: CGFloat(textSizeSlider.value))
