@@ -35,7 +35,7 @@
                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="startStopTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c32-rK-c8H"/>
+                                    <action selector="startStopAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hpZ-fJ-w90"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGT-df-EDZ">
@@ -49,7 +49,7 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="resetTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NWw-dh-I0M"/>
+                                    <action selector="resetAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V31-LT-bFo"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=".00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yk-OK-grh">
@@ -66,7 +66,7 @@
                     <connections>
                         <outlet property="fractionLabel" destination="5Yk-OK-grh" id="uEU-zA-cWO"/>
                         <outlet property="resetButton" destination="VGT-df-EDZ" id="x3c-jB-HNf"/>
-                        <outlet property="startStopButton" destination="aXv-85-mzc" id="cuq-Gu-nCv"/>
+                        <outlet property="startStopButton" destination="aXv-85-mzc" id="ggn-U3-Nv0"/>
                         <outlet property="timerLabel" destination="Uh0-Q8-RAx" id="htB-Wr-gdd"/>
                     </connections>
                 </viewController>

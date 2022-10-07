@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// реализация  секундомера
+/// Экран  секундомера
 final class StopWatchViewController: UIViewController {
 
 // MARK: - Constans
@@ -43,7 +43,7 @@ final class StopWatchViewController: UIViewController {
     }
     
 // MARK: - IBAction
-    @IBAction func startStopTapped(_ sender: Any) {
+    @IBAction func startStopAction(_ sender: Any) {
         if timerCounting {
             pauseButton()
         } else {
@@ -51,7 +51,7 @@ final class StopWatchViewController: UIViewController {
         }
     }
     
-    @IBAction func resetTapped(_ sender: Any) {
+    @IBAction func resetAction(_ sender: Any) {
         Constans.fraction = 0
         Constans.seconds = 0
         Constans.minutes = 0
