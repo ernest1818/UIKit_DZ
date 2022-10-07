@@ -19,12 +19,11 @@ class LoginViewController: UIViewController {
 // MARK: - Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        defaults.object(forKey: "name")
     }
     
 // MARK: - IBActions
     @IBAction func enterButton(_ sender: Any) {
-        if loginTextView.text == defaults.object(forKey: "name") as? String &&
+        if loginTextView.text == defaults.object(forKey: "userName") as? String &&
             passwordTextField.text == defaults.object(forKey: "pass") as? String {
             performSegue(withIdentifier: "showTabBar", sender: nil)
         } else {
