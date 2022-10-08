@@ -7,8 +7,7 @@
 
 import UIKit
 
-/// rkfcc
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var userNameLabel: UILabel!
@@ -23,21 +22,17 @@ class ProfileViewController: UIViewController {
     var name = ""
     var surName = ""
     var userName = ""
-    let defaults = UserDefaults()
+    
+    // MARK: - Private properties
+    private let defaults = UserDefaults()
     
     // MARK: - life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        defaults.removeObject(forKey: "name")
-//        defaults.removeObject(forKey: "pass")
-//        defaults.removeObject(forKey: "userName")
-//        defaults.removeObject(forKey: "surName")
-
     }
     
     // MARK: - Private Methods
-    
     private func setupUI() {
         guard let name = defaults.string(forKey: "name") else { return }
         guard let surName = defaults.string(forKey: "surName") else { return }

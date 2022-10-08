@@ -7,8 +7,8 @@
 
 import UIKit
 
-/// контроллер регистрации  юзера в приложении
-class RegistrationViewController: UIViewController {
+/// Экран регистрации  юзера в приложении
+final class RegistrationViewController: UIViewController {
 
 // MARK: @IBOutlets
     @IBOutlet weak var registrationView: UIView!
@@ -17,7 +17,8 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    let defaults = UserDefaults.standard
+// MARK: - Private properties
+    private let defaults = UserDefaults.standard
     
 // MARK: - LifeCicle
     override func viewDidLoad() {
@@ -38,14 +39,6 @@ class RegistrationViewController: UIViewController {
     
 // MARK: - Private Methods
     private func setupUI() {
-        setUpRegistrationView()
-    }
-    
-    private func userDeafult() {
-        
-    }
-    
-    private func setUpRegistrationView() {
         registrationView.layer.cornerRadius = 100
         registrationView.layer.shadowColor = UIColor.black.cgColor
         registrationView.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -53,7 +46,7 @@ class RegistrationViewController: UIViewController {
         registrationView.layer.shadowOpacity = 0.6
     }
     // MARK: - IBActions
-    @IBAction func registrationButton(_ sender: Any) {
+    @IBAction func registrationAction(_ sender: Any) {
         guard let name = nameTaxtField.text else { return }
         guard let password = passwordTextField.text else { return }
         guard let surName = surnameTextField.text else { return }
@@ -64,6 +57,7 @@ class RegistrationViewController: UIViewController {
         defaults.set(surName, forKey: "surName")
         defaults.set(userName, forKey: "userName")
        
+        
     }
     
 }

@@ -83,7 +83,7 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="registrationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s7x-0U-ejK"/>
+                                    <action selector="registrationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gos-rs-yMP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmg-UB-mS6">
@@ -169,7 +169,7 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="enterButton:" destination="nhF-K8-w8b" eventType="touchUpInside" id="AbR-xJ-a8Y"/>
+                                    <action selector="enterAction:" destination="nhF-K8-w8b" eventType="touchUpInside" id="1Y5-Zp-lRg"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hi, my friend :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zi-Bw-o75">
