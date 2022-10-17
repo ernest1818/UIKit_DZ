@@ -24,6 +24,14 @@ final class NSConstraintsViewController: UIViewController {
     
     // MARK: - Private Methods
     private func setupUI() {
+        createVCConfiguration()
+        creatYellowConstraint()
+        creatRedConstraint()
+        creatGreenConstraint()
+        creatBlackConstraints()
+    }
+    
+    private func createVCConfiguration() {
         view.backgroundColor = .white
         title = "NSConstraintsViewController"
         let myViews = [blackView, redView, yellowView, greenView]
@@ -31,11 +39,6 @@ final class NSConstraintsViewController: UIViewController {
         for views in myViews {
             view.addSubview(views)
         }
-        
-        creatYellowConstraint()
-        creatRedConstraint()
-        creatGreenConstraint()
-        creatBlackConstraint()
     }
     
     private func creatYellowConstraint() {
@@ -134,7 +137,7 @@ final class NSConstraintsViewController: UIViewController {
         ])
     }
     
-    private func creatBlackConstraint() {
+    private func creatBlackConstraints() {
         NSLayoutConstraint.activate([
             NSLayoutConstraint(item: blackView,
                                attribute: .centerX,

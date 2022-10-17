@@ -24,6 +24,14 @@ final class AnchorViewController: UIViewController {
     
     // MARK: - Private Methods
     private  func setupUI() {
+        createVCConfiguration()
+        createYellowAnchor()
+        createRedAnchor()
+        createGreenAnchor()
+        createBlackAnchor()
+    }
+    
+    private func createVCConfiguration() {
         view.backgroundColor = .white
         title = "AnchorViewController"
         let myViews = [blackView, redView, yellowView, greenView]
@@ -31,11 +39,6 @@ final class AnchorViewController: UIViewController {
         for views in myViews {
             view.addSubview(views)
         }
-        
-        createYellowAnchor()
-        createRedAnchor()
-        createGreenAnchor()
-        createBlackAnchor()
     }
     
     private func createYellowAnchor() {
